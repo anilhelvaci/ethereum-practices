@@ -16,4 +16,8 @@ contract DeedRepository {
         (bool sent, bytes memory data) = payable(address(this)).call{value: _amount}("");
         require(sent, "Failed to send Ether");
     }
+
+    function balance() external view returns(uint) {
+        return address(this).balance;
+    }
 }

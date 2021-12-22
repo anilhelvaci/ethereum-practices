@@ -114,7 +114,7 @@ export default function Transactor(providerOrSigner, gasPrice, etherscan) {
 
         return result;
       } catch (e) {
-        if (DEBUG) console.log(e);
+        if (DEBUG) console.log("RESULT ERROR", e);
         // Accounts for Metamask and default signer on all networks
         let message =
           e.data && e.data.message
@@ -142,7 +142,7 @@ export default function Transactor(providerOrSigner, gasPrice, etherscan) {
         }
 
         notification.error({
-          message: "Transaction Error",
+          message: "Error",
           description: message,
         });
         if (callback && typeof callback === "function") {

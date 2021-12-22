@@ -160,6 +160,7 @@ export default function FunctionForm({ contractFunction, functionInfo, provider,
   }
 
   const handleForm = returned => {
+    console.log("RETURNED", returned);
     if (returned) {
       setForm({});
     }
