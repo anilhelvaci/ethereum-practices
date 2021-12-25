@@ -80,7 +80,7 @@ function App(props) {
   const location = useLocation();
 
   /// 📡 What chain are your contracts deployed to?
-  const targetNetwork = NETWORKS[selectedNetwork]; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+  const targetNetwork = NETWORKS.ropsten; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
   // 🔭 block explorer URL
   const blockExplorer = targetNetwork.blockExplorer;
@@ -256,8 +256,8 @@ function App(props) {
         <Menu.Item key="/">
           <Link to="/">App Home</Link>
         </Menu.Item>
-        <Menu.Item key="/debug">
-          <Link to="/debug">Debug Contracts</Link>
+        <Menu.Item key="/smartBankAccount">
+          <Link to="/smartBankAccount">SmartBankAccount</Link>
         </Menu.Item>
         <Menu.Item key="/hints">
           <Link to="/hints">Hints</Link>
@@ -278,7 +278,7 @@ function App(props) {
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
           <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
         </Route>
-        <Route exact path="/debug">
+        <Route exact path="/smartBankAccount">
           {/*
                 🎛 this scaffolding is full of commonly used components
                 this <Contract/> component will automatically parse your ABI
@@ -286,7 +286,7 @@ function App(props) {
             */}
 
           <Contract
-            name="YourContract"
+            name="SmartBankAccount"
             price={price}
             signer={userSigner}
             provider={localProvider}
